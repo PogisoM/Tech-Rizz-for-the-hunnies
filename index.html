@@ -71,6 +71,11 @@
       <div class="button-container">
         <button id="yesButton" class="yes-button">Yes</button>
         <button id="noButton" class="no-button">No</button>
+        <div class="yesButton" onclick="showMessage()"></div>
+        <p class="hidden-message">
+          'I worked like a dog, day and night' so ain't no way you are rejecting
+          me 😭. Please click on the next link to submit your answer 🤭💕
+        </p>
       </div>
       <p>Ke go rata ke sa khutsi 💖 Coded with love by Pogiso P Mokwena.</p>
     </div>
@@ -86,6 +91,10 @@
           });
           document.getElementById("noButton").disabled = true;
         });
+        function showMessage()
+        document
+          .getElementById("valentineCard")
+          .classList.toggle("show-message");
     </script>
   </body>
 </html>

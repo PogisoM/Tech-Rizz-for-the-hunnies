@@ -4,25 +4,87 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Valentine's Day Card</title>
-    <link rel="stylesheet" href="/Tech-Rizz-for-the-hunnies/styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.3.2/dist/confetti.browser.min.js"></script>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        background-color: pink;
+        font-family: Arial, sans-serif;
+        text-align: center;
+      }
+      .card {
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        max-width: 400px;
+      }
+      h1 {
+        color: red;
+      }
+      p {
+        font-size: 18px;
+      }
+      .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .yes-button {
+        background-color: red;
+        color: white;
+      }
+      .yes-button:hover {
+        background-color: darkred;
+      }
+      .no-button {
+        background-color: white;
+        color: red;
+        border: 2px solid red;
+      }
+      .no-button:hover {
+        background-color: lightgray;
+      }
+      button:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    </style>
   </head>
   <body>
-    <div class="card" id="valentineCard">
-      <h2>Will you be my valentine's?</h2>
-      <p>Click the heart below to select your answer.</p>
-      <div class="heart" onclick="showMessage()">❤️</div>
-      <p class="hidden-message">
-        'I worked like a dog, day and night' so ain't no way you are rejecting
-        me 😭. PS: you are loved! 💕. It is me and you go ya bokhutlong ba
-        lefasthe. Love Pogiso
-      </p>
+    <div class="card">
+      <h1>Will you be my Valentine? 💖</h1>
+      <p>Make my day special by saying yes! 😊</p>
+      <div class="button-container">
+        <button id="yesButton" class="yes-button">Yes</button>
+        <button id="noButton" class="no-button">No</button>
+      </div>
     </div>
+
     <script>
-      function showMessage() {
-        document
-          .getElementById("valentineCard")
-          .classList.toggle("show-message");
-      }
+      document
+        .getElementById("yesButton")
+        .addEventListener("click", function () {
+          confetti({
+            particleCount: 100,
+            spread: 70,
+            origin: { y: 0.6 },
+          });
+          document.getElementById("noButton").disabled = true;
+        });
     </script>
   </body>
 </html>
